@@ -989,3 +989,14 @@ textarea{
 .home-google-btn img.google-icon,.home-google-btn .google-icon-wrap img,.home-google-btn > img,.google-btn img.google-icon,.google-btn .google-icon-wrap img,.google-btn > img{width:18px !important;height:18px !important;min-width:18px !important;max-width:18px !important;min-height:18px !important;max-height:18px !important;display:block !important;object-fit:contain !important;flex:0 0 18px !important;}
 .home-google-btn span:last-child{display:inline-block !important;white-space:nowrap !important;}
 @media(max-width:760px){.home-auth-card{max-width:100% !important}.home-google-btn{width:100% !important;justify-content:center !important;}}
+
+
+/* Compact Google auth final fix */
+.top-google-auth{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;}
+.top-google-btn{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);color:#fff;border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;line-height:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;white-space:nowrap;box-shadow:none;min-height:34px;}
+.top-google-btn.signup{background:#b7ff39;color:#071006;border-color:#b7ff39;}
+.top-google-btn img,.top-google-auth img,#userNav img[src*="google-logo"],button img[src*="google-logo"],.google-btn img[src*="google-logo"]{width:16px!important;height:16px!important;min-width:16px!important;max-width:16px!important;min-height:16px!important;max-height:16px!important;display:inline-block!important;object-fit:contain!important;flex:0 0 16px!important;vertical-align:middle!important;}
+.hero .home-auth-card{display:none!important;}
+.google-btn{min-height:42px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;overflow:hidden!important;}
+.google-btn img{width:18px!important;height:18px!important;min-width:18px!important;max-width:18px!important;min-height:18px!important;max-height:18px!important;object-fit:contain!important;flex:0 0 18px!important;}
+@media(max-width:760px){.top-google-auth{gap:5px}.top-google-btn{padding:7px 9px;font-size:12px}.top-google-btn img{width:14px!important;height:14px!important;min-width:14px!important;max-width:14px!important;min-height:14px!important;max-height:14px!important}.search{display:none}}

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>DigitalAccessNepal</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="favicon.png?v=3">
+<link rel="apple-touch-icon" href="favicon.png?v=3">
+<link rel="stylesheet" href="style.css?v=google-compact-3">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body data-page="home">
@@ -14,9 +14,9 @@
   <a class="logo-wrap" href="index.html"><img src="logo.png" class="logo" alt="DigitalAccessNepal"></a>
   <input class="search" id="searchInput" placeholder="Search Netflix, ChatGPT, Spotify...">
   <div class="nav-right">
-    <div id="userNav" class="user-nav">
-      <a href="login.html" id="loginLink">Login</a>
-      <a href="signup.html" id="signupLink" class="signup-link">Sign Up</a>
+    <div id="userNav" class="user-nav top-google-auth">
+      <button class="top-google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Sign In</button>
+      <button class="top-google-btn signup" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Sign Up</button>
     </div>
     <a href="admin.html" id="adminNavLink" class="admin-nav-link hidden-admin">Admin Panel</a>
     <a href="#orders" class="track-link">Orders</a>
@@ -44,16 +44,6 @@
     <div class="hero-buttons">
       <button class="green-btn" onclick="scrollToProducts()">Shop Now →</button>
       <button class="dark-btn" onclick="location.href='buy.html'">How to Buy ⦿</button>
-    </div>
-    <div class="home-auth-card" id="homeAuthCard">
-      <div class="home-auth-copy">
-        <strong>Login for faster orders</strong>
-        <span>Sign in or sign up with Google and track your orders easily.</span>
-      </div>
-      <div class="home-auth-actions">
-        <button class="home-google-btn" onclick="loginWithGoogle()"><span class="google-icon-wrap"><img class="google-icon" src="google-logo.svg" alt="Google"></span><span>Sign in with Google</span></button>
-        <button class="home-google-btn outline" onclick="loginWithGoogle()"><span class="google-icon-wrap"><img class="google-icon" src="google-logo.svg" alt="Google"></span><span>Sign up with Google</span></button>
-      </div>
     </div>
   </div>
   <div class="hero-right">

@@ -64,7 +64,7 @@ function showUserNav(user){
     box.innerHTML = `<span class="username-pill">${avatar} ${session.username}</span><button class="logout-mini" onclick="logoutUser()">Logout</button>`;
     updateHomeAuth(session);
   } else {
-    box.innerHTML = `<a href="login.html" id="loginLink">Login</a><a href="signup.html" id="signupLink" class="signup-link">Sign Up</a>`;
+    box.innerHTML = `<button class="top-google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Sign In</button><button class="top-google-btn signup" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Sign Up</button>`;
   }
 }
 function revealAdmin(user){
