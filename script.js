@@ -5,59 +5,41 @@ const FACEBOOK_LINK = 'https://facebook.com/share/1EC65sXvDP/';
 const brandLogo = (name) => `${name}.svg`;
 
 const products = [
+  {name:'Google Gemini AI Pro Private', category:'Primary AI', desc:'Existing mail private AI Pro access • secure setup', logoImg:brandLogo('gemini'), cls:'gemini', badge:'Top AI Plan', plans:[
+    {label:'1 Year Private', price:1499}
+  ]},
+  {name:'Google Gemini AI Pro Family', category:'Primary AI', desc:'Share with whole family • existing mail setup', logoImg:brandLogo('gemini'), cls:'gemini', badge:'Family Invite', plans:[
+    {label:'1 Year Family', price:3999}
+  ]},
+  {name:'Grok AI Private', category:'Primary AI', desc:'Private Grok AI access • premium speed', logoImg:brandLogo('grok'), cls:'grok', badge:'Private AI', plans:[
+    {label:'1 Month Private', price:1999}
+  ]},
+  {name:'Grok AI Shared', category:'Primary AI', desc:'Shared Grok AI plan • budget friendly', logoImg:brandLogo('grok'), cls:'grok', badge:'Shared AI', plans:[
+    {label:'1 Month Shared', price:1199}
+  ]},
   {name:'Netflix Premium', category:'Primary OTT', desc:'Premium streaming plan • fast delivery', logoImg:brandLogo('netflix'), cls:'netflix', badge:'Premium Access', plans:[
-    {label:'1 Month', price:349},{label:'2 Months', price:599},{label:'3 Months', price:849},{label:'6 Months', price:1749},{label:'12 Months', price:3699}
+    {label:'1 Month', price:349}
   ]},
   {name:'Spotify Premium', category:'Primary Music', desc:'Ad-free music premium • fast delivery', logoImg:brandLogo('spotify'), cls:'spotify', badge:'Premium Music', plans:[
     {label:'3 Months', price:1099},{label:'6 Months', price:1949},{label:'12 Months', price:3899}
   ]},
   {name:'CapCut Pro', category:'Primary Design', desc:'Pro editing plan • templates and export tools', logoImg:brandLogo('capcut'), cls:'capcut', badge:'Pro Plan', plans:[
-    {label:'1 Month', price:499},{label:'1 Year', price:1999}
+    {label:'1 Month', price:399},{label:'1 Year', price:1999}
   ]},
-  {name:'Microsoft Office Key', category:'Primary Software', desc:'1 year license key • productivity apps', logoImg:brandLogo('microsoft'), cls:'microsoft', badge:'License Key', plans:[
-    {label:'1 Year Key', price:1999}
+  {name:'Canva Pro', category:'Primary Design', desc:'Canva Pro on existing mail • premium tools', logoImg:brandLogo('canva'), cls:'canva', badge:'Design Pro', plans:[
+    {label:'1 Year Existing Mail', price:499}
   ]},
-  {name:'Claude AI Pro', category:'Primary AI', desc:'Your mail AI pro plan • fast setup', logoImg:brandLogo('claude'), cls:'claude', badge:'AI Pro', plans:[
-    {label:'1 Month', price:1999}
+  {name:'Microsoft 365', category:'Primary Software', desc:'1 year Microsoft 365 subscription • up to 2 PCs', logoImg:brandLogo('microsoft'), cls:'microsoft', badge:'Office Suite', plans:[
+    {label:'1 Year', price:3499}
+  ]},
+  {name:'Crunchyroll Premium', category:'Primary OTT', desc:'Anime streaming premium access', logoImg:brandLogo('crunchyroll'), cls:'crunchyroll', badge:'Anime Pass', plans:[
+    {label:'1 Month', price:199},{label:'1 Year', price:1499}
+  ]},
+  {name:'Surfshark VPN', category:'Primary Software', desc:'Secure VPN access • high speed servers', logoImg:brandLogo('surfshark'), cls:'surfshark', badge:'VPN Access', plans:[
+    {label:'2 Months', price:999}
   ]},
   {name:'ChatGPT Plus Private', category:'Primary AI', desc:'Your mail private plan • secure setup', logoImg:brandLogo('chatgpt'), cls:'chatgpt', badge:'Private Access', plans:[
     {label:'1 Month', price:999},{label:'1 Year', price:4999}
-  ]},
-  {name:'ChatGPT Pro Sharing Plan', category:'Primary AI', desc:'Shared pro access • budget friendly', logoImg:brandLogo('chatgpt'), cls:'chatgpt', badge:'Sharing Plan', plans:[
-    {label:'3 Months', price:1999}
-  ]},
-  {name:'Perplexity Pro', category:'Primary AI', desc:'AI search and research pro plan', logoImg:brandLogo('perplexity'), cls:'perplexity', badge:'AI Research', plans:[
-    {label:'1 Year', price:2999}
-  ]},
-  {name:'SuperGrok', category:'Primary AI', desc:'Grok premium access • fast delivery', logoImg:brandLogo('grok'), cls:'grok', badge:'AI Premium', plans:[
-    {label:'1 Month', price:1499},{label:'1 Year', price:4899}
-  ]},
-  {name:'YouTube Premium', category:'Primary OTT', desc:'Ad-free video and music plan', logoImg:brandLogo('youtube'), cls:'youtube', badge:'Video Premium', plans:[
-    {label:'1 Year', price:2299}
-  ]},
-  {name:'Prime Video', category:'Primary OTT', desc:'Streaming subscription access', logoImg:brandLogo('primevideo'), cls:'prime', badge:'Streaming', plans:[
-    {label:'1 Month', price:99}
-  ]},
-  {name:'Canva Pro', category:'Primary Design', desc:'Design tools, templates and pro features', logoImg:brandLogo('canva'), cls:'canva', badge:'Design Pro', plans:[
-    {label:'1 Month', price:500}
-  ]},
-  {name:'Grammarly', category:'Primary Software', desc:'Grammar and writing assistant • fast delivery', logoImg:brandLogo('grammarly'), cls:'grammarly', badge:'Writing Tool', plans:[
-    {label:'1 Month', price:500}
-  ]},
-  {name:'Quillbot Premium', category:'Primary Software', desc:'Paraphrasing and writing tool • fast delivery', logoImg:brandLogo('quillbot'), cls:'quillbot', badge:'Writing Tool', plans:[
-    {label:'1 Month', price:500}
-  ]},
-  {name:'Scribd Premium', category:'More Cloud Services', desc:'Books, documents and reading access', logoImg:brandLogo('scribd'), cls:'scribd', badge:'Reading Access', plans:[
-    {label:'1 Month', price:1000}
-  ]},
-  {name:'Windows Activation Key', category:'Primary Software', desc:'Windows activation key • fast delivery', logoImg:brandLogo('windows'), cls:'windows', badge:'Lifetime Key', plans:[
-    {label:'Lifetime Key', price:1500}
-  ]},
-  {name:'Adobe Creative Cloud', category:'Primary Design', desc:'Adobe apps access • creative suite', logoImg:brandLogo('adobe'), cls:'adobe', badge:'Creative Suite', plans:[
-    {label:'1 Month', price:2000}
-  ]},
-  {name:'Beautiful AI', category:'Primary AI', desc:'AI presentation maker • fast delivery', logoImg:brandLogo('beautifulai'), cls:'beautifulai', badge:'Presentation AI', plans:[
-    {label:'1 Month', price:2000}
   ]}
 ];
 
@@ -71,11 +53,14 @@ function scrollToProducts(){ document.getElementById('products').scrollIntoView(
 function productCategoryMatches(product){ return activeCategory === 'All' || product.category === activeCategory || (activeCategory === 'Primary Plans' && product.category.startsWith('Primary')); }
 function planName(product, plan){ return `${product.name} - ${plan.label}`; }
 function getSelectedPlan(index){ const p=products[index]; const sel=document.getElementById('plan-'+index); return p.plans[Number(sel ? sel.value : 0)] || p.plans[0]; }
-function buySelected(index){ const p=products[index], plan=getSelectedPlan(index); buyNow(planName(p,plan), plan.price); }
-function addSelected(index){ const p=products[index], plan=getSelectedPlan(index); addToCart(planName(p,plan), plan.price); }
+function getCardQty(index){ const el=document.getElementById('qty-'+index); return Math.max(1, Number(el?.innerText || 1)); }
+function increaseQty(index){ const el=document.getElementById('qty-'+index); if(el) el.innerText = Number(el.innerText)+1; }
+function decreaseQty(index){ const el=document.getElementById('qty-'+index); if(el) el.innerText = Math.max(1, Number(el.innerText)-1); }
+function buySelected(index){ const p=products[index], plan=getSelectedPlan(index); buyNow(planName(p,plan), plan.price, getCardQty(index)); }
+function addSelected(index){ const p=products[index], plan=getSelectedPlan(index); addToCart(planName(p,plan), plan.price, getCardQty(index)); }
 function updatePlanPrice(index){ const plan=getSelectedPlan(index); const el=document.getElementById('price-'+index); if(el) el.innerText = 'Rs. ' + plan.price.toLocaleString(); }
-function buyNow(name, price){ localStorage.setItem('danCheckout', JSON.stringify([{name, price:Number(price), qty:1}])); location.href = 'buy.html'; }
-function addToCart(name, price){ price=Number(price); const found=cart.find(i=>i.name===name); if(found) found.qty+=1; else cart.push({name,price,qty:1}); saveCart(); renderCart(); openCart(); }
+function buyNow(name, price, qty=1){ localStorage.setItem('danCheckout', JSON.stringify([{name, price:Number(price), qty:Number(qty)}])); location.href = 'buy.html'; }
+function addToCart(name, price, qty=1){ qty=Number(qty); price=Number(price); const found=cart.find(i=>i.name===name); if(found) found.qty+=qty; else cart.push({name,price,qty}); saveCart(); renderCart(); openCart(); }
 function removeFromCart(index){ cart.splice(index,1); saveCart(); renderCart(); }
 function changeQty(index, qty){ cart[index].qty = Math.max(1, Number(qty)); saveCart(); renderCart(); }
 function clearCart(){ cart=[]; saveCart(); renderCart(); }
@@ -106,6 +91,7 @@ function renderProducts(list=products){
         ${p.plans.map((pl,i)=>`<option value="${i}">${pl.label} - Rs. ${pl.price.toLocaleString()}</option>`).join('')}
       </select>
       <h4 id="price-${index}">Rs. ${first.price.toLocaleString()}</h4>
+      <div class="qty-wrap"><span>Quantity</span><div class="qty-box"><button onclick="decreaseQty(${index})">−</button><strong id="qty-${index}">1</strong><button onclick="increaseQty(${index})">+</button></div></div>
       <div class="card-actions"><button class="cartbtn" onclick="addSelected(${index})">Add Cart</button><button onclick="buySelected(${index})">Buy Now</button></div>
       <details><summary>About Product</summary><p>${p.name} includes ${p.desc}. Delivery starts after payment verification.</p></details>
     </div>`; }).join('');

@@ -1101,3 +1101,4 @@ footer a:hover{color:#b7ff39;transform:translateX(3px);}
 .field-error span{display:block;}
 .auth-box input:invalid{box-shadow:none;}
 .auth-box input.error-input{border-color:#ff6262!important;}
+.qty-wrap{display:flex;align-items:center;justify-content:space-between;margin:12px 0}.qty-box{display:flex;align-items:center;gap:12px;background:#111827;border:1px solid rgba(255,255,255,.1);padding:8px 12px;border-radius:14px}.qty-box button{width:30px;height:30px;border:none;border-radius:8px;background:#22c55e;color:#fff;font-size:20px;cursor:pointer}.qty-box strong{min-width:20px;text-align:center;font-size:16px}.gemini,.grok,.crunchyroll,.surfshark{background:rgba(255,255,255,.08)}
