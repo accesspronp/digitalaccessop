@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Panel - DigitalAccessNepal</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+<header class="topbar">
+  <a href="index.html"><img src="logo.png" class="logo" alt="DigitalAccessNepal"></a>
+  <div class="nav-right"><a href="index.html">Website</a><a href="index.html#orders">Orders</a><a href="#" onclick="adminLogout()">Logout</a></div>
+</header>
+
+<section class="admin-panel">
+  <div class="admin-head">
+    <div>
+      <div class="badge">Admin Dashboard</div>
+      <h1>Manage Website Orders</h1>
+      <p>Orders placed from checkout appear here. Update status and customers can see it in the Orders section.</p>
+    </div>
+    <div class="admin-actions">
+      <button class="complete" onclick="renderAdminOrders()">Refresh</button>
+      <button class="cartbtn" onclick="exportOrders()">Export JSON</button>
+    </div>
+  </div>
+
+  <div class="admin-stats">
+    <div><strong id="statOrders">0</strong><span>Total Orders</span></div>
+    <div><strong id="statPending">0</strong><span>Pending</span></div>
+    <div><strong id="statRevenue">Rs. 0</strong><span>Total Value</span></div>
+  </div>
+
+  <div class="admin-table-wrap">
+    <table class="admin-table">
+      <thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="adminOrdersBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<script src="firebase-config.js"></script>
+<script type="module" src="firebase-auth.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Official Sign Up - DigitalAccessNepal</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="signup">
+<div class="auth-page">
+<div class="auth-box">
+<img src="logo.png" class="logo" alt="DigitalAccessNepal">
+<h2>Official Sign Up</h2>
+<p class="muted">Create your account once. Next time you can login with Google or email/password.</p>
+<div id="firebaseNotice"></div>
+<button class="google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg" alt="Google"> Sign up with Google</button>
+<div class="auth-divider"><span>or</span></div>
+<input id="signupName" type="text" placeholder="Full Name">
+<input id="signupUsername" type="text" placeholder="Username">
+<input id="signupEmail" type="email" placeholder="Email Address">
+<input id="signupPassword" type="password" placeholder="Password">
+<input id="signupConfirm" type="password" placeholder="Confirm Password">
+<button class="complete" onclick="signupUser()">Create Account</button>
+<div id="signupMsg"></div>
+<p class="switch">Already have account?</p>
+<button class="cartbtn" onclick="window.location.href='login.html'">Login</button>
+<button class="cartbtn ghost-btn" onclick="window.location.href='index.html'">Back To Website</button>
+</div>
+</div>
+<script src="firebase-config.js"></script>
+<script type="module" src="firebase-auth.js"></script>
+</body>
+</html>
