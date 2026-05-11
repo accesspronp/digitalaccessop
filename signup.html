@@ -8,20 +8,25 @@
 <link rel="apple-touch-icon" href="favicon.png?v=3">
 <link rel="stylesheet" href="style.css?v=google-compact-3">
 </head>
-<body data-page="signup">
+<body data-page="signup" class="loading"><div id="siteLoader" class="site-loader"><div class="loader-ring"></div><p>Loading...</p></div>
 <div class="auth-page">
 <div class="auth-box">
 <img src="logo.png" class="logo" alt="DigitalAccessNepal">
 <h2>Official Sign Up</h2>
-<p class="muted">Create your account once. Next time you can login with Google or email/password.</p>
+<p class="muted">Create your account once using Google or your email with a strong passcode.</p>
 <div id="firebaseNotice"></div>
 <button class="google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Sign up with Google</button>
 <div class="auth-divider"><span>or</span></div>
 <input id="signupName" type="text" placeholder="Full Name">
-<input id="signupUsername" type="text" placeholder="Username">
+<input id="signupUsername" type="text" placeholder="Username (8+ letters, no spaces)">
+<div id="signupUsernameError" class="field-error"></div>
 <input id="signupEmail" type="email" placeholder="Email Address">
-<input id="signupPassword" type="password" placeholder="Password">
-<input id="signupConfirm" type="password" placeholder="Confirm Password">
+<div id="signupEmailError" class="field-error"></div>
+<input id="signupPassword" type="password" placeholder="Passcode: 6+ letters, uppercase + @#!">
+<div id="signupPasswordError" class="field-error"></div>
+<input id="signupConfirm" type="password" placeholder="Confirm Passcode">
+<div id="signupConfirmError" class="field-error"></div>
+<p class="auth-rule">Username: at least 8 letters, no spaces. Email must include @. Passcode: 6+ letters, 1 uppercase letter, 1 special character like @ # !.</p>
 <button class="complete" onclick="signupUser()">Create Account</button>
 <div id="signupMsg"></div>
 <p class="switch">Already have account?</p>
@@ -29,6 +34,7 @@
 <button class="cartbtn ghost-btn" onclick="window.location.href='index.html'">Back To Website</button>
 </div>
 </div>
+<script src="loader.js"></script>
 <script src="firebase-config.js"></script>
 <script type="module" src="firebase-auth.js"></script>
 </body>

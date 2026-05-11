@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css?v=google-compact-3">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body data-page="home">
+<body data-page="home" class="loading"><div id="siteLoader" class="site-loader"><div class="loader-ring"></div><p>Loading...</p></div>
 <header class="topbar">
   <a class="logo-wrap" href="index.html"><img src="logo.png" class="logo" alt="DigitalAccessNepal"></a>
   <input class="search" id="searchInput" placeholder="Search Netflix, ChatGPT, Spotify...">
@@ -83,16 +83,17 @@
 </section>
 
 <footer id="contact">
-  <div><img src="logo.png" class="footer-logo" alt="DigitalAccessNepal"><p>Your trusted partner for premium digital services.</p></div>
-  <div><h4>Quick Links</h4><p>Home</p><p>Shop</p><p>How to Buy</p></div>
-  <div><h4>Customer Service</h4><p>Contact Us</p><p>Refund Policy</p><p>Orders</p></div>
-  <div><h4>Contact Us</h4><p>+977 9829136727</p><p><a href="https://t.me/digitalproducts_12" target="_blank">Telegram: @digitalproducts_12</a></p><p>support@digitalaccessnepal.com</p></div>
+  <div><img src="logo.png" class="footer-logo" alt="DigitalAccessNepal"><p>Your trusted partner for premium digital services like Netflix, Gemini AI Pro, ChatGPT, Spotify, OTT plans, software keys, design tools, and more.</p></div>
+  <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="index.html#products">Shop</a><a href="buy.html">How to Buy</a></div>
+  <div><h4>Customer Service</h4><a href="index.html#contact">Contact Us</a><a href="refund.html">Refund Policy</a><a href="index.html#orders">Orders</a></div>
+  <div><h4>Contact Us</h4><a class="whatsapp-contact" href="https://wa.me/9779829136727?text=Hello%20DigitalAccessNepal%2C%20I%20need%20help%20with%20my%20order." target="_blank">+977 9829136727</a><a href="https://facebook.com/share/1EC65sXvDP/" target="_blank">Facebook Page</a><a href="mailto:support@digitalaccessnepal.com">support@digitalaccessnepal.com</a></div>
+<div class="footer-copy">© 2026 DigitalAccessNepal. All rights reserved.</div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/9779829136727" target="_blank" aria-label="Chat on WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/9779829136727?text=Hello%20DigitalAccessNepal%2C%20I%20need%20help%20with%20my%20order." target="_blank" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.1 17.3c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1c-.3-.2-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-.9-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.1.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3.5 29l6.8-1.8c1.8 1 3.7 1.5 5.7 1.5 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.4c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 .9.9-3.9-.3-.4c-1-1.6-1.6-3.4-1.6-5.4C5.4 10.1 10.1 5.4 16 5.4S26.6 10.1 26.6 16 21.9 26.4 16 26.4z"/></svg>
 </a>
-<a class="telegram-float" href="https://t.me/digitalproducts_12" target="_blank">✈</a>
+<a class="facebook-float" href="https://facebook.com/share/1EC65sXvDP/" target="_blank">f</a>
 
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-header"><h2>Your Cart</h2><button onclick="closeCart()" class="closebtn">✕</button></div>
@@ -102,6 +103,7 @@
   <button class="cartbtn" onclick="clearCart()">Clear Cart</button>
 </div>
 
+<script src="loader.js"></script>
 <script src="script.js"></script>
 <script src="firebase-config.js"></script>
 <script type="module" src="firebase-auth.js"></script>

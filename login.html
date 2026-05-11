@@ -8,18 +8,21 @@
 <link rel="apple-touch-icon" href="favicon.png?v=3">
 <link rel="stylesheet" href="style.css?v=google-compact-3">
 </head>
-<body data-page="login">
+<body data-page="login" class="loading"><div id="siteLoader" class="site-loader"><div class="loader-ring"></div><p>Loading...</p></div>
 <div class="auth-page">
   <div class="auth-box">
     <img src="logo.png" class="logo" alt="DigitalAccessNepal">
     <h2 id="loginTitle">Official Login</h2>
-    <p class="muted" id="loginHelp">Login with email/password or Google. Owner email opens the hidden admin panel.</p>
+    <p class="muted" id="loginHelp">Login with Google or your email and passcode. Owner email opens the hidden admin panel.</p>
     <div id="firebaseNotice"></div>
     <button class="google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Continue with Google</button>
     <div class="auth-divider"><span>or</span></div>
     <input id="loginEmail" type="email" placeholder="Email Address">
-    <input id="loginPassword" type="password" placeholder="Password">
-    <button class="complete" onclick="loginUser()">Login</button>
+<div id="loginEmailError" class="field-error"></div>
+    <input id="loginPassword" type="password" placeholder="Passcode">
+<div id="loginPasswordError" class="field-error"></div>
+    <p class="auth-rule">Enter your registered email and passcode. If @ is missing, we will show the email error clearly.</p>
+<button class="complete" onclick="loginUser()">Login With Passcode</button>
     <div id="loginMsg"></div>
     <p class="switch">No account yet?</p>
     <button class="cartbtn" onclick="window.location.href='signup.html'">Create Official Sign Up</button>
@@ -30,6 +33,7 @@
 const params = new URLSearchParams(location.search);
 if(params.get('admin')) document.getElementById('loginTitle').innerText = 'Owner Admin Login';
 </script>
+<script src="loader.js"></script>
 <script src="firebase-config.js"></script>
 <script type="module" src="firebase-auth.js"></script>
 </body>

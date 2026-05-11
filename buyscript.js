@@ -21,6 +21,18 @@ function renderOrder(){
   document.getElementById('total').innerText = money(total());
 }
 
+
+function setupPhoneField(){
+  const phoneInput = document.getElementById('phone');
+  if(!phoneInput) return;
+  phoneInput.addEventListener('input', () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+  });
+  phoneInput.addEventListener('paste', () => {
+    setTimeout(() => { phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10); }, 0);
+  });
+}
+
 function showQR(type){
   const qr = document.getElementById('mainQR');
   const dl = document.getElementById('downloadQR');
@@ -45,6 +57,7 @@ function completeOrder(){
   const name = document.getElementById('fullName').value.trim();
   const phone = document.getElementById('phone').value.trim();
   if(!name || !phone){ alert('Please enter full name and phone number.'); return; }
+  if(!/^\d{1,10}$/.test(phone)){ alert('Phone number must contain digits only and maximum 10 numbers.'); return; }
 
   const id = 'DAN-' + Math.floor(100000 + Math.random() * 900000);
   const order = {
@@ -68,6 +81,7 @@ function completeOrder(){
 }
 
 renderOrder();
+setupPhoneField();
 showQR('khalti');
 
 

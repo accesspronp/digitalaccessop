@@ -1,6 +1,6 @@
 const CONTACT_PHONE = '9829136727';
 const CONTACT_PHONE_INTL = '9779829136727';
-const TELEGRAM_ID = '@digitalproducts_12';
+const FACEBOOK_LINK = 'https://facebook.com/share/1EC65sXvDP/';
 
 const brandLogo = (name) => `${name}.svg`;
 
