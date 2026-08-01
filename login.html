@@ -1,40 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Login - DigitalAccessNepal</title>
-<link rel="icon" type="image/png" href="favicon.png?v=3">
-<link rel="apple-touch-icon" href="favicon.png?v=3">
-<link rel="stylesheet" href="style.css?v=google-compact-3">
-</head>
-<body data-page="login" class="loading"><div id="siteLoader" class="site-loader"><div class="loader-ring"></div><p>Loading...</p></div>
-<div class="auth-page">
-  <div class="auth-box">
-    <img src="logo.png" class="logo" alt="DigitalAccessNepal">
-    <h2 id="loginTitle">Official Login</h2>
-    <p class="muted" id="loginHelp">Login with Google or your email and passcode. Owner email opens the hidden admin panel.</p>
-    <div id="firebaseNotice"></div>
-    <button class="google-btn" onclick="loginWithGoogle()"><img src="google-logo.svg?v=3" alt="Google"> Continue with Google</button>
-    <div class="auth-divider"><span>or</span></div>
-    <input id="loginEmail" type="email" placeholder="Email Address">
-<div id="loginEmailError" class="field-error"></div>
-    <input id="loginPassword" type="password" placeholder="Passcode">
-<div id="loginPasswordError" class="field-error"></div>
-    <p class="auth-rule">Enter your registered email and passcode. If @ is missing, we will show the email error clearly.</p>
-<button class="complete" onclick="loginUser()">Login With Passcode</button>
-    <div id="loginMsg"></div>
-    <p class="switch">No account yet?</p>
-    <button class="cartbtn" onclick="window.location.href='signup.html'">Create Official Sign Up</button>
-    <button class="cartbtn ghost-btn" onclick="window.location.href='index.html'">Back To Website</button>
-  </div>
-</div>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login | Digital Access Nepal</title><link rel="icon" href="favicon.ico"><link rel="apple-touch-icon" href="favicon.png">
+<style>:root{--bg:#eef9ff;--card:rgba(255,255,255,.86);--ink:#09243a;--muted:#557085;--blue:#2ea8ff;--deep:#1374d9;--green:#16c784;--line:rgba(19,116,217,.16);--shadow:0 24px 70px rgba(19,116,217,.16)}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,var(--bg),#fff 42%,#dff3ff);color:var(--ink);min-height:100vh}.wrap{max-width:1180px;margin:auto;padding:0 18px}a{text-decoration:none;color:inherit}.nav{position:sticky;top:0;background:rgba(255,255,255,.75);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);z-index:10}.navin{display:flex;align-items:center;justify-content:space-between;padding:14px 0}.brand{display:flex;gap:12px;align-items:center}.logo{width:50px;height:50px;border-radius:18px;background:linear-gradient(135deg,#72d8ff,#2ea8ff,#fff);display:block;object-fit:cover;background:#fff}.brand h1{margin:0;font-size:23px}.brand p{margin:0;color:var(--muted);font-size:12px}.btn{border:0;border-radius:16px;padding:12px 18px;font-weight:900;cursor:pointer;display:inline-flex;gap:8px;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(19,116,217,.1);background:#fff}.btn.green{background:linear-gradient(135deg,#25d366,#15b86d);color:#fff}.btn.dark{color:var(--deep);border:1px solid var(--line)}.btn.small{padding:9px 12px;border-radius:12px;font-size:13px}.page{min-height:calc(100vh - 82px);display:grid;place-items:center;padding:44px 18px}.panel{width:min(520px,100%);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}h2{font-size:36px;margin:0 0 8px}.sub{margin:0 0 20px;color:var(--muted);line-height:1.5}.form{display:grid;gap:14px}.form label{font-weight:900}.form input{width:100%;margin-top:7px;border-radius:16px;padding:14px 15px;background:#fff;border:1px solid var(--line);outline:none}.notice{border-left:4px solid var(--blue);background:#eaf8ff;padding:13px;border-radius:14px;color:#173b54;font-size:14px}.userbar{margin-top:14px;color:var(--muted);font-size:14px}.row{display:flex;gap:10px;flex-wrap:wrap}.row .btn{flex:1}.hide{display:none}
+/* Recent purchase popup */
+.purchase-pop{position:fixed;left:16px;bottom:16px;z-index:80;width:min(310px,calc(100vw - 32px));background:rgba(255,255,255,.96);border:1px solid rgba(7,152,196,.22);border-radius:18px;box-shadow:0 20px 48px rgba(3,28,53,.20);padding:12px 13px;display:flex;align-items:center;gap:11px;transform:translateX(-120%);opacity:0;pointer-events:none;transition:transform .45s ease,opacity .45s ease;backdrop-filter:blur(14px)}
+.purchase-pop.show{transform:translateX(0);opacity:1}.purchase-pop .popIcon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#071527,#0798c4);display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 10px 24px rgba(7,152,196,.22);flex:0 0 auto}.purchase-pop .popText{min-width:0}.purchase-pop .popText b{display:block;font-size:13px;color:#09243a;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.purchase-pop .popText span{display:block;margin-top:4px;font-size:12px;color:#607386;line-height:1.25}.purchase-pop .popCheck{margin-left:auto;width:22px;height:22px;border-radius:999px;background:#22c55e;color:white;font-size:12px;display:grid;place-items:center;font-weight:1000;flex:0 0 auto}.purchase-pop .popDot{display:inline-block;width:7px;height:7px;border-radius:999px;background:#22c55e;margin-right:5px;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:popDotPulse 1.8s infinite}@keyframes popDotPulse{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}@media(max-width:640px){.purchase-pop{left:10px;bottom:10px;width:min(290px,calc(100vw - 20px));padding:10px}.purchase-pop .popIcon{width:38px;height:38px}.wa{bottom:78px}}
+
+</style></head><body>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="index.html"><img class="logo" src="zest-brand-icon.png" alt="Digital Access Nepal logo"><div><h1>Digital Access Nepal</h1><p>Digital Authorized Online Store</p></div></a><div class="row"><a class="btn dark small" href="index.html">Home</a><a class="btn dark small" href="cart.html">Cart</a><a class="btn dark small" href="orders.html">Orders</a></div></div></nav>
+<main class="page"><section class="panel"><h2 id="authTitle">Login</h2><p class="sub" id="authSub">Use your email and password. New email will register automatically.</p><p class="notice">Choose Login or Sign Up from the website. After login you can set your username.</p>
+<form class="form" id="loginForm"><label>Email<input id="loginEmail" type="email" required placeholder="your@email.com"></label><label>Password<input id="loginPassword" type="password" required minlength="4" placeholder="Password"></label><button class="btn green" id="authBtn" type="submit">Login / Sign Up</button><div class="row"><a class="btn dark" href="login.html">Login</a><a class="btn dark" href="login.html?mode=signup">Sign Up</a></div></form>
+<form class="form hide" id="profileForm" style="margin-top:18px"><label>Set username<input id="username" required placeholder="Your display name"></label><div class="row"><button class="btn green" type="submit">Save Username</button><button class="btn dark" type="button" id="logoutBtn">Logout</button></div></form><div class="userbar" id="userbar"></div></section></main>
 <script>
-const params = new URLSearchParams(location.search);
-if(params.get('admin')) document.getElementById('loginTitle').innerText = 'Owner Admin Login';
+
+const mode = new URLSearchParams(location.search).get('mode');
+if(mode==='signup'){
+  authTitle.textContent='Sign Up';
+  authSub.textContent='Create your account to manage orders, receipts and order history.';
+  authBtn.textContent='Create Account';
+}
+
+function getUsers(){return JSON.parse(localStorage.getItem('zest_users')||'[]')}function saveUsers(u){localStorage.setItem('zest_users',JSON.stringify(u))}function getSession(){try{return JSON.parse(localStorage.getItem('zest_current_user')||'null')}catch(e){return null}}function setSession(user){localStorage.setItem('zest_current_user',JSON.stringify({email:user.email,username:user.username||'',createdAt:user.createdAt,lastLogin:new Date().toISOString()}))}function nextUrl(){return new URLSearchParams(location.search).get('next')||'index.html'}
+function showProfile(){const u=getSession(); if(!u)return; loginForm.classList.add('hide'); profileForm.classList.remove('hide'); username.value=u.username||''; userbar.innerHTML=`Logged in as <b>${u.email}</b>`;}
+loginForm.addEventListener('submit',e=>{e.preventDefault();const email=loginEmail.value.trim().toLowerCase();const password=loginPassword.value;let users=getUsers();let user=users.find(u=>u.email===email);if(user&&user.password!==password){alert('Wrong password for this email.');return;}if(!user){user={email,password,username:'',createdAt:new Date().toISOString()};users.push(user);saveUsers(users);}setSession(user); if(!user.username){showProfile();}else{location.href=nextUrl();}});
+profileForm.addEventListener('submit',e=>{e.preventDefault();let s=getSession();let users=getUsers();let u=users.find(x=>x.email===s.email); if(u){u.username=username.value.trim();saveUsers(users);setSession(u);} location.href=nextUrl();});
+logoutBtn.addEventListener('click',()=>{localStorage.removeItem('zest_current_user');location.href='login.html'}); if(getSession())showProfile();
 </script>
-<script src="loader.js"></script>
-<script src="firebase-config.js"></script>
-<script type="module" src="firebase-auth.js"></script>
-</body>
-</html>
+<div id="purchasePop" class="purchase-pop" aria-live="polite">
+  <div class="popIcon">🛒</div>
+  <div class="popText"><b>New purchase</b><span><i class="popDot"></i>Someone purchased a plan</span></div>
+  <div class="popCheck">✓</div>
+</div>
+
+
+<script>
+(function(){
+  const pop=document.getElementById('purchasePop');
+  return; // Disabled: no fake/random purchase popups
+  if(!pop) return;
+  const fallbackProducts=[
+    {name:'Netflix Premium',plan:'6 Months'},{name:'Netflix Premium',plan:'12 Months'},
+    {name:'CapCut Pro',plan:'1 Year'},{name:'Gemini AI Pro',plan:'18 Months'},
+    {name:'ChatGPT Pro',plan:'12 Months'},{name:'Spotify Premium',plan:'12 Months'},
+    {name:'Canva Pro',plan:'1 Year'},{name:'YouTube Premium',plan:'6 Months'},
+    {name:'Prime Video',plan:'1 Month'},{name:'NordVPN',plan:'1 Year'}
+  ];
+  const shopProducts=(typeof PRODUCTS_DEFAULT!=='undefined' && Array.isArray(PRODUCTS_DEFAULT) && PRODUCTS_DEFAULT.length)
+    ? PRODUCTS_DEFAULT.map(p=>({name:p.name||'Premium Product',plan:p.plan||'Premium Plan'}))
+    : fallbackProducts;
+  const buyers=[
+    'Aarav Shrestha','Nisha Gurung','Rohit K.C.','Sneha Magar','Kiran Tamang','Sujan Rai','Prabin Bista','Maya Thapa',
+    'Aayush Poudel','Ritika Lama','Bikash Adhikari','Rojan Maharjan','Samir Khadka','Pooja Basnet','Nabin Ghimire',
+    'Ashish Yadav','Sagar Karki','Anisha Malla','Manish Sharma','Kripa Joshi','Bibek Rana','Sushmita Ale'
+  ];
+  const times=['about 50 minutes ago','about 55 minutes ago','about 1 hour ago','about 2 hours ago','about 3 hours ago','about 4 hours ago','about 5 hours ago','earlier today'];
+  const icons=['🛒','🔥','✅','⚡','🎉','💳','⭐','📦'];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  let lastText='';
+  function pickDifferent(){
+    let buyer=pick(buyers), item=pick(shopProducts), time=pick(times);
+    let text=buyer+' purchased '+item.name;
+    let tries=0;
+    while(text===lastText && tries<8){ buyer=pick(buyers); item=pick(shopProducts); text=buyer+' purchased '+item.name; tries++; }
+    lastText=text;
+    return {buyer,item,time};
+  }
+  function showPurchase(){
+    const data=pickDifferent();
+    pop.querySelector('.popIcon').textContent=pick(icons);
+    pop.querySelector('.popText b').textContent=data.buyer+' purchased '+data.item.name;
+    pop.querySelector('.popText span').innerHTML='<i class="popDot"></i>'+data.item.plan+' plan • '+data.time;
+    pop.classList.add('show');
+    clearTimeout(window.__zestPopHide);
+    window.__zestPopHide=setTimeout(()=>pop.classList.remove('show'),6200);
+    clearTimeout(window.__zestPopNext);
+    window.__zestPopNext=setTimeout(showPurchase,Math.floor(12000+Math.random()*14000));
+  }
+  setTimeout(showPurchase,1400+Math.random()*1800);
+})();
+</script>
+
+</body></html>
