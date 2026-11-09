@@ -1,11 +1,11 @@
 (function(){
   function hideLoader(){
-    setTimeout(function(){
+    window.setTimeout(function(){
       document.body.classList.remove('loading');
-      var loader = document.getElementById('siteLoader');
-      if(loader){ loader.classList.add('hide'); setTimeout(function(){ loader.remove(); }, 350); }
-    }, 300);
+      var loader=document.getElementById('siteLoader');
+      if(loader){loader.classList.add('hide');window.setTimeout(function(){loader.remove();},320);}
+    },800);
   }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hideLoader);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hideLoader,{once:true});
   else hideLoader();
 })();

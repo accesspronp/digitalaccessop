@@ -38,8 +38,11 @@ const products = [
   {name:'Surfshark VPN', category:'Primary Software', desc:'Secure VPN access • high speed servers', logoImg:brandLogo('surfshark'), cls:'surfshark', badge:'VPN Access', plans:[
     {label:'2 Months', price:999}
   ]},
-  {name:'ChatGPT Plus Private', category:'Primary AI', desc:'Your mail private plan • secure setup', logoImg:brandLogo('chatgpt'), cls:'chatgpt', badge:'Private Access', plans:[
-    {label:'1 Month', price:999},{label:'1 Year', price:4999}
+  {name:'Claude AI Pro Private', category:'Primary AI', desc:'Claude AI Pro private plan • choose your duration', logoImg:brandLogo('claude'), cls:'claude', badge:'Private AI', plans:[
+    {label:'1 Month', price:1899},{label:'3 Months', price:3199},{label:'6 Months', price:4899},{label:'12 Months', price:7899}
+  ]},
+  {name:'ChatGPT Plus Private', category:'Primary AI', desc:'ChatGPT Plus private plan • choose your duration', logoImg:brandLogo('chatgpt'), cls:'chatgpt', badge:'Private Access', plans:[
+    {label:'1 Month', price:500},{label:'3 Months', price:1500},{label:'6 Months', price:2900},{label:'12 Months', price:5300}
   ]}
 ];
 
@@ -56,10 +59,10 @@ function getSelectedPlan(index){ const p=products[index]; const sel=document.get
 function getCardQty(index){ const el=document.getElementById('qty-'+index); return Math.max(1, Number(el?.innerText || 1)); }
 function increaseQty(index){ const el=document.getElementById('qty-'+index); if(el) el.innerText = Number(el.innerText)+1; }
 function decreaseQty(index){ const el=document.getElementById('qty-'+index); if(el) el.innerText = Math.max(1, Number(el.innerText)-1); }
-function buySelected(index){ const p=products[index], plan=getSelectedPlan(index); buyNow(planName(p,plan), plan.price, getCardQty(index)); }
+function buySelected(index){ const p=products[index], plan=getSelectedPlan(index); buyNow(planName(p,plan), plan.price, getCardQty(index), p); }
 function addSelected(index){ const p=products[index], plan=getSelectedPlan(index); addToCart(planName(p,plan), plan.price, getCardQty(index)); }
 function updatePlanPrice(index){ const plan=getSelectedPlan(index); const el=document.getElementById('price-'+index); if(el) el.innerText = 'Rs. ' + plan.price.toLocaleString(); }
-function buyNow(name, price, qty=1){ localStorage.setItem('danCheckout', JSON.stringify([{name, price:Number(price), qty:Number(qty)}])); location.href = 'buy.html'; }
+function buyNow(name, price, qty=1, product=null){ const key=String(name).toLowerCase().includes('claude')?'Claude AI Pro Private':String(name).toLowerCase().includes('chatgpt')?'ChatGPT Plus Private':name; localStorage.setItem('danCheckout', JSON.stringify([{name:key, productName:key, plan:String(name).split(' - ').pop(), price:Number(price), qty:Number(qty)}])); location.href = 'buy.html'; }
 function addToCart(name, price, qty=1){ qty=Number(qty); price=Number(price); const found=cart.find(i=>i.name===name); if(found) found.qty+=qty; else cart.push({name,price,qty}); saveCart(); renderCart(); openCart(); }
 function removeFromCart(index){ cart.splice(index,1); saveCart(); renderCart(); }
 function changeQty(index, qty){ cart[index].qty = Math.max(1, Number(qty)); saveCart(); renderCart(); }
