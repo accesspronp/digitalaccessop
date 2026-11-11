@@ -323,4 +323,15 @@ if(reviewForm){reviewForm.addEventListener('submit',function(e){e.preventDefault
 </script>
 
 <script src="loader.js?v=dan-brand-loader-1"></script>
+<style>
+#promoPop{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(5,20,40,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity .35s ease}
+#promoPop.hide{opacity:0;pointer-events:none}
+#promoPop .promoBox{position:relative;max-width:min(720px,100%);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+#promoPop img{display:block;width:100%;height:auto}
+#promoPop button{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#132437;font-size:20px;line-height:34px;text-align:center;cursor:pointer;font-weight:700}
+</style>
+<div id="promoPop" role="dialog" aria-label="Promotion"><div class="promoBox"><button type="button" aria-label="Close" id="promoClose">&times;</button><img src="popup-banner.webp" alt="Claude AI Pro 1 Month offer Rs 1850" width="1672" height="941"></div></div>
+<script>
+(function(){var p=document.getElementById('promoPop');if(!p)return;var h=function(){p.classList.add('hide');setTimeout(function(){p.style.display='none';},400);};var t=setTimeout(h,3000);document.getElementById('promoClose').addEventListener('click',function(){clearTimeout(t);h();});p.addEventListener('click',function(e){if(e.target===p){clearTimeout(t);h();}});})();
+</script>
 </body></html>
